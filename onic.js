@@ -9,14 +9,6 @@ const http = require('http').createServer(app);
 let isBotAlive = false;
 
 // Endpoint untuk menampilkan pesan bot hidup atau mati
-app.get('/', (req, res) => {
-    const message = isBotAlive ? 'Bot Hidup' : 'Bot Mati';
-    res.send(`<h1>${message}</h1>`);
-});
-
-http.listen(3000, () => {
-    console.log('Server is listening on port 3000');
-});
 
 
 const {
@@ -177,7 +169,7 @@ async function startonic() {
     }
     
     onic.ev.on('messages.upsert', async chatUpdate => {
-        
+        console.log('hy pesan masuk nihh')
     })
     
     /*
@@ -241,6 +233,14 @@ async function startonic() {
         if (update.connection == "open" || update.receivedPendingNotifications == "true") {
             await store.chats.all()
             console.log(chalk.hex('#FFAD99').bold(`Terhubung dengan = ` + JSON.stringify(onic.user, null, 2)))
+            app.get('/', (req, res) => {
+    const message = isBotAlive ? 'Bot Hidup' : 'Bot Mati';
+    res.send(`<h1>${message}</h1>`);
+});
+
+http.listen(3000, () => {
+    console.log('Server is listening on port 3000');
+});
             // await onic.mdbConnect();
 
         }
