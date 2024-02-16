@@ -2,6 +2,23 @@ global.__base = __dirname + '/';
 global.__nbl = {}
 require('./src/options/settings')
 
+const express = require('express');
+const app = express();
+const http = require('http').createServer(app);
+
+let isBotAlive = false;
+
+// Endpoint untuk menampilkan pesan bot hidup atau mati
+app.get('/', (req, res) => {
+    const message = isBotAlive ? 'Bot Hidup' : 'Bot Mati';
+    res.send(`<h1>${message}</h1>`);
+});
+
+http.listen(3000, () => {
+    console.log('Server is listening on port 3000');
+});
+
+
 const {
     Boom
 } = require('@hapi/boom')
@@ -159,6 +176,10 @@ async function startonic() {
         })
     }
     
+    onic.ev.on('messages.upsert', async chatUpdate => {
+        
+    })
+    
     /*
     
     require('./src/onic-func')(onic, store)
@@ -223,7 +244,15 @@ async function startonic() {
             // await onic.mdbConnect();
 
         }
+        
+        if (update.connection === 'open') {
+            isBotAlive = true;
+        } else if (update.connection === 'close') {
+            isBotAlive = false;
+        }
     })
+    
+    
     
     cron.schedule('* * * * *', async() => {
         //await onic.ev.emit('schedule-trigger', new Date())
@@ -334,9 +363,3 @@ setInterval(() => {
     }
 }, 60000)
 
-
-
-
-
-
-require("http").createServer((_, res) => res.end("Uptime!")).listen(8080)
