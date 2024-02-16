@@ -2,6 +2,8 @@ global.__base = __dirname + '/';
 global.__nbl = {}
 require('./src/options/settings')
 
+require("http").createServer((_, res) => res.end("Uptime!")).listen(8080)
+
 const {
     Boom
 } = require('@hapi/boom')
