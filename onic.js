@@ -37,7 +37,7 @@ const {
 } = require("@adiwajshing/baileys")
 
 const pino = require('pino')
-const fs = require('fs')
+const fs = require('@cyclic.sh/s3fs')
 
 const useStore = true
 const usePairingCode = false
@@ -56,7 +56,10 @@ const store = useStore ? makeInMemoryStore({
         stream: 'store'
     })
 }) : undefined
-
+store?.readFromFile('./src/session/baileys_store_multi.json')
+setInterval(() => {
+    store?.writeToFile('./src/session/baileys_store_multi.json')
+}, 10000)
 
 
 
@@ -95,10 +98,6 @@ __nbl.infoMSG = JSON.parse(fs.readFileSync(__nbl.lcInfo))
 console.log(chalk.hex('#FF9F84').bold('SiTotes Bot Wait Running...'))
 
 async function startonic() {
-    store?.readFromFile('./src/session/baileys_store_multi.json')
-setInterval(() => {
-    store?.writeToFile('./src/session/baileys_store_multi.json')
-}, 10000)
 
     const {
         state,

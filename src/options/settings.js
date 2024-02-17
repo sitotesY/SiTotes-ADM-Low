@@ -1,6 +1,6 @@
 const home = (path) => __base + path
 
-const fs = require('fs')
+const fs = require('@cyclic.sh/s3fs')
 const chalk = require('chalk')
 
 global.firtsChat = true //send firts message to new user
