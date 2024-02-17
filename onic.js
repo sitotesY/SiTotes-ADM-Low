@@ -37,7 +37,7 @@ const {
 } = require("@adiwajshing/baileys")
 
 const pino = require('pino')
-const fs = require('@cyclic.sh/s3fs')
+const fs = require('@cyclic.sh/s3fs/promises') 
 
 const useStore = true
 const usePairingCode = false
