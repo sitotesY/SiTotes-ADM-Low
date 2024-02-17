@@ -37,7 +37,7 @@ const {
 } = require("@adiwajshing/baileys")
 
 const pino = require('pino')
-const fs = require('@cyclic.sh/s3fs/promises') 
+const fs = require('@cyclic.sh/s3fs')('cyclic-clean-mite-girdle-ap-northeast-1')
 
 const useStore = true
 const usePairingCode = false
