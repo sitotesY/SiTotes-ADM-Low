@@ -21,7 +21,7 @@ global.ownnochat = ["6288989781626", "62889897816262"] //ganti agar fitur owner 
 global.ownno = "6288989781626" // nomor wa kalian
 global.ownnoplus = "+6288989781626" //nmr wa kalian
 
-global.logo = fs.readFileSync("./src/.sitotes/media/image/sitotes.jpg") // ini lol.jpg adalah nama foto di folder image. untuk foto bot
+// global.logo = fs.readFileSync("./src/.sitotes/media/image/sitotes.jpg") // ini lol.jpg adalah nama foto di folder image. untuk foto bot
 
 global.packname = '© SiTotes-Md' //sticker wm ubah
 global.author = 'Slebeww' //sticker wm ganti nama kalian
@@ -30,10 +30,10 @@ global.sessionName = 'session'
 
 global.sp = '⭔'
 
-let file = require.resolve(__filename)
-fs.watchFile(file, () => {
-    fs.unwatchFile(file)
-    console.log(chalk.redBright(`Update'${__filename}'`))
-    delete require.cache[file]
-    require(file)
-})
+// let file = require.resolve(__filename)
+// fs.watchFile(file, () => {
+    // fs.unwatchFile(file)
+    // console.log(chalk.redBright(`Update'${__filename}'`))
+    // delete require.cache[file]
+    // require(file)
+// })
