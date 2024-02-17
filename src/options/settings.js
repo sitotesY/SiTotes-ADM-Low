@@ -1,6 +1,6 @@
 const home = (path) => __base + path
 
-const fs = require('fs')
+// const fs = require('fs')
 const chalk = require('chalk')
 
 global.firtsChat = true //send firts message to new user
@@ -10,7 +10,7 @@ global.allowGrub = true
 
 global.botdata = "BD_SiTotes"
 global.botname = "SiTotes-Md" //namabot kalian
-global.ownername = 'Bot᭄ SiTotes ×፝֟͜×  |  v' + fs.readFileSync(home('./versi'), 'utf-8').trim()+'-dev' //nama kalian
+// global.ownername = 'Bot᭄ SiTotes ×፝֟͜×  |  v' + fs.readFileSync(home('./versi'), 'utf-8').trim()+'-dev' //nama kalian
 global.myweb = "https://web.sitotes.repl.co" //bebas asal jan hapus
 global.email = "si.totes.ofc@gmail.com" //bebas
 global.negara = "Indonesia" //bebas

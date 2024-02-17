@@ -37,7 +37,7 @@ const {
 } = require("@adiwajshing/baileys")
 
 const pino = require('pino')
-const fs = require('@cyclic.sh/s3fs')('cyclic-clean-mite-girdle-ap-northeast-1')
+// const fs = require('@cyclic.sh/s3fs')('cyclic-clean-mite-girdle-ap-northeast-1')
 
 const useStore = true
 const usePairingCode = false
@@ -80,20 +80,20 @@ const {
 const cron = require('node-cron')
 // const figlet = require('figlet')
 
-global.db = JSON.parse(fs.readFileSync("./src/.sitotes/data/database.json"))
+// global.db = JSON.parse(fs.readFileSync("./src/.sitotes/data/database.json"))
 global.ky_ttt = []
 
-if (global.db) global.db.data = {
-    game: {},
-    proses: {},
-    ...(global.db.data || {})
-}
+// if (global.db) global.db.data = {
+    // game: {},
+    // proses: {},
+    // ...(global.db.data || {})
+// }
 
 __nbl.ttlerr = 0
 __nbl.isduakali = 0
 __nbl.chekid = {}
 __nbl.lcInfo = './src/.sitotes/data/data-msg.json'
-__nbl.infoMSG = JSON.parse(fs.readFileSync(__nbl.lcInfo))
+// __nbl.infoMSG = JSON.parse(fs.readFileSync(__nbl.lcInfo))
 
 console.log(chalk.hex('#FF9F84').bold('SiTotes Bot Wait Running...'))
 
@@ -151,10 +151,10 @@ async function startonic() {
     }
     
     function nocache(module, cb = () => {}) {
-        fs.watchFile(require.resolve(module), async () => {
-            await uncache(require.resolve(module))
-            cb(module)
-        })
+        // fs.watchFile(require.resolve(module), async () => {
+            // await uncache(require.resolve(module))
+            // cb(module)
+        // })
     }
     
     function uncache(module = '.') {
@@ -352,7 +352,7 @@ startonic()
 
 
 
-fs.watchFile(require.resolve(__filename), () => { throw new Error('Ini Memang Di buat Error Untuk menghentikan kode dan memulai ulang ')})
+// fs.watchFile(require.resolve(__filename), () => { throw new Error('Ini Memang Di buat Error Untuk menghentikan kode dan memulai ulang ')})
 
 setInterval(() => {
     if (__nbl.ttlerr > 3) {
